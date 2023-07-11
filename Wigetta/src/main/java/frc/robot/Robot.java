@@ -6,18 +6,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.subsystems.ArmRotation;
 import frc.robot.subsystems.ChasisDrive;
   
 
 public class Robot extends TimedRobot {
   public final ChasisDrive chasisDrive = new ChasisDrive(
     0, 1, 2, 3);
+  public final ArmRotation armRotation = new ArmRotation(2);
   public PS4Controller controller = new PS4Controller(0);
   
   @Override
-  public void robotInit() {
-    
-  }
+  public void robotInit() {}
 
   @Override
   public void robotPeriodic() {}

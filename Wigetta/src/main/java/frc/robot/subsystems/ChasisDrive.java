@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class ChasisDrive extends SubsystemBase {
   /** Creates a new ChasisDrive. */
 
-  Spark m_leftFront, m_rightFront, m_leftBack, m_rightBack;
-  MotorControllerGroup m_left, m_right;
-  DifferentialDrive driveTrain;
+  private Spark m_leftFront, m_rightFront, m_leftBack, m_rightBack;
+  private MotorControllerGroup m_left, m_right;
+  private DifferentialDrive driveTrain;
 
   public ChasisDrive(int m_leftFront, int m_rightFront, int m_leftBack, int m_rightBack) {
     this.m_leftBack = new Spark(m_leftBack);
