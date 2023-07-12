@@ -12,17 +12,17 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class ArmRotation extends SubsystemBase {
 
-  private VictorSPX robotArm;
+  private VictorSPX m_robotArm;
 
   /** Creates a new ArmRotation. */
   public ArmRotation(int robotArm) {
-    this.robotArm = new VictorSPX(robotArm);
-    this.robotArm.clearStickyFaults();
-    this.robotArm.setNeutralMode(NeutralMode.Brake);
+    this.m_robotArm = new VictorSPX(robotArm);
+    this.m_robotArm.clearStickyFaults();
+    this.m_robotArm.setNeutralMode(NeutralMode.Brake);
   }
 
   public void rotateArm(double input) {
-    this.robotArm.set(ControlMode.PercentOutput, input);
+    this.m_robotArm.set(ControlMode.PercentOutput, input);
   }
 
   @Override

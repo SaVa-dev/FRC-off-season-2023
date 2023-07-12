@@ -46,6 +46,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     chasisDrive.input(controller.getLeftY(), controller.getLeftX());
+    armRotation.rotateArm(controller.getRightY());
   }
 
   @Override
