@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.subsystems.ArmExtention;
 import frc.robot.subsystems.ArmRotation;
 import frc.robot.subsystems.ChasisDrive;
   
@@ -14,6 +15,7 @@ public class Robot extends TimedRobot {
   public final ChasisDrive chasisDrive = new ChasisDrive(
     0, 1, 2, 3);
   public final ArmRotation armRotation = new ArmRotation(2);
+  public final ArmExtention armExtention = new ArmExtention(4);
   public PS4Controller controller = new PS4Controller(0);
   
   @Override
@@ -45,8 +47,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    chasisDrive.input(controller.getLeftY(), controller.getLeftX());
+    chasisDrive.controllerInput(controller.getLeftY(), controller.getLeftX(), controller.getL1Button());
     armRotation.rotateArm(controller.getRightY());
+    armExtention.extendArm(controller.getL2Axis(), controller.getR2Axis());
+    
   }
 
   @Override

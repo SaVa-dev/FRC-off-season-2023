@@ -15,14 +15,14 @@ public class ArmRotation extends SubsystemBase {
   private VictorSPX m_robotArm;
 
   /** Creates a new ArmRotation. */
-  public ArmRotation(int robotArm) {
-    this.m_robotArm = new VictorSPX(robotArm);
+  public ArmRotation(int ID_robotArm) {
+    this.m_robotArm = new VictorSPX(ID_robotArm);
     this.m_robotArm.clearStickyFaults();
     this.m_robotArm.setNeutralMode(NeutralMode.Brake);
   }
 
   public void rotateArm(double input) {
-    this.m_robotArm.set(ControlMode.PercentOutput, input);
+    this.m_robotArm.set(ControlMode.PercentOutput, input * 0.8);
   }
 
   @Override
