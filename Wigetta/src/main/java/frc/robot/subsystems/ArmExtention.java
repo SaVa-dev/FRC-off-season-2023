@@ -21,15 +21,11 @@ public class ArmExtention extends SubsystemBase {
 		armExtention.setNeutralMode(NeutralMode.Brake);
 	}
 
-	public void extendArm(double t_extendArm, double t_retractArm) {
-		if (t_extendArm > 0.2 ^ t_retractArm > 0.2) {
-			if (t_extendArm > 0.2) {
-				armExtention.setInverted(true);
-				armExtention.set(ControlMode.PercentOutput, t_extendArm * 0.7);
-			} else if (t_retractArm > 0.2) {
-				armExtention.setInverted(false);
-				armExtention.set(ControlMode.PercentOutput, t_extendArm * 0.7);
-			}
+	public void extendArm(boolean b_extendArm, boolean b_retractArm) {
+		if (b_extendArm) {
+			armExtention.set(ControlMode.PercentOutput, 0.875);
+		} else if (b_retractArm) {
+			armExtention.set(ControlMode.PercentOutput, -0.8);
 		} else {
 			armExtention.set(ControlMode.PercentOutput, 0);
 		}
