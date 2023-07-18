@@ -12,21 +12,21 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class ArmRotation extends SubsystemBase {
 
-  private VictorSPX m_robotArm;
+    private VictorSPX m_robotArm;
 
-  /** Creates a new ArmRotation. */
-  public ArmRotation(int ID_robotArm) {
-    this.m_robotArm = new VictorSPX(ID_robotArm);
-    this.m_robotArm.clearStickyFaults();
-    this.m_robotArm.setNeutralMode(NeutralMode.Brake);
-  }
+    /** Creates a new ArmRotation. */
+    public ArmRotation(int ID_robotArm) {
+        this.m_robotArm = new VictorSPX(ID_robotArm);
+        this.m_robotArm.clearStickyFaults();
+        this.m_robotArm.setNeutralMode(NeutralMode.Brake);
+    }
 
-  public void rotateArm(double input) {
-    this.m_robotArm.set(ControlMode.PercentOutput, input * 0.8);
-  }
+    public void rotateArm(double input) {
+        this.m_robotArm.set(ControlMode.PercentOutput, input * 0.8);
+    }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
+    @Override
+    public void periodic() {
+        // This method will be called once per scheduler run
+    }
 }

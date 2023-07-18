@@ -21,10 +21,10 @@ public class ArmExtention extends SubsystemBase {
 		armExtention.setNeutralMode(NeutralMode.Brake);
 	}
 
-	public void extendArm(boolean b_extendArm, boolean b_retractArm) {
-		if (b_extendArm) {
+	public void extendArm(int b_dPad) {
+		if (b_dPad == 0) {
 			armExtention.set(ControlMode.PercentOutput, 0.875);
-		} else if (b_retractArm) {
+		} else if (b_dPad == 180) {
 			armExtention.set(ControlMode.PercentOutput, -0.8);
 		} else {
 			armExtention.set(ControlMode.PercentOutput, 0);
