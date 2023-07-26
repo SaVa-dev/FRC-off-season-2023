@@ -16,9 +16,9 @@ public class Robot extends TimedRobot {
     Thread m_visionThread;
     public final ChasisDrive chasisDrive = new ChasisDrive(
             0, 1, 2, 3);
+    public final IntakeShooter intakeShooter = new IntakeShooter(1);
     public final ArmRotation armRotation = new ArmRotation(2);
     public final ArmExtention armExtention = new ArmExtention(4);
-    public final IntakeShooter intakeShooter = new IntakeShooter(1);
     public PS4Controller controller = new PS4Controller(0);
 
     @Override
@@ -65,7 +65,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-        chasisDrive.controllerInput(controller.getLeftY(), controller.getLeftX(), controller.getL1Button());
+        chasisDrive.controllerInput(controller.getLeftY(), controller.getLeftX(), controller.getL1Button(),
+                controller.getR1Button());
         armRotation.rotateArm(controller.getRightY());
         armExtention.extendArm(controller.getPOV());
         intakeShooter.turnOnIntake(controller.getSquareButton(), controller.getTriangleButton(),

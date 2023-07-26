@@ -28,11 +28,11 @@ public class ChasisDrive extends SubsystemBase {
         this.m_left.setInverted(true);
     }
 
-    public void controllerInput(double j_yAxis, double j_zAxis, boolean b_turbo) {
+    public void controllerInput(double j_yAxis, double j_zAxis, boolean b_turbo, boolean b_invertir) {
         this.turbo = b_turbo ? 1.0 : 0.8;
         this.yMovement = j_yAxis * this.turbo;
         this.yawMovement = j_zAxis * this.turbo;
-        this.driveTrain.arcadeDrive(yMovement, yawMovement);
+        this.driveTrain.arcadeDrive(yMovement *= b_invertir ? -1 : 1, yawMovement);
     }
 
     @Override
